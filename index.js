@@ -1,4 +1,14 @@
-var app = require("./config/app.js");
+var questions = require("./js/questions.js");
 
-app.setup();
-app.startServer();
+questions.askFavouriteFootballTeam()
+  .then(function(answer) {
+    console.log(answer);
+    questions.askFavouritePlayer()
+      .then(function(answer) {
+        console.log(answer);
+        questions.askWhatNumberHeIs()
+          .then(function(answer) {
+            console.log(answer);
+          });
+      });
+  });
